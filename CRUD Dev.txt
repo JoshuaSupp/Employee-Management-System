@@ -1,0 +1,9 @@
+CRUD Dev
+
+TODO
+1) Access token when logging in
+2) Login from Users and employees table (RBAC)
+
+
+Working On
+Creating RBAC for Users and employees - update routing for both roles 

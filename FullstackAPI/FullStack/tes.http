@@ -1,0 +1,6 @@
+@tes_HostAddress = http://localhost:5251
+
+GET {{tes_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
