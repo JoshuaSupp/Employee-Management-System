@@ -4,6 +4,7 @@ using FullStack.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullStack.API.Migrations
 {
     [DbContext(typeof(FullStackDbContext))]
-    partial class FullStackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241217115014_Removeuserrole")]
+    partial class Removeuserrole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,12 +106,7 @@ namespace FullStack.API.Migrations
                     b.Property<string>("Pwd")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoleID")
-                        .HasColumnType("int");
-
                     b.HasKey("UserID");
-
-                    b.HasIndex("RoleID");
 
                     b.ToTable("Users");
                 });
@@ -142,17 +139,6 @@ namespace FullStack.API.Migrations
                     b.HasOne("FullStack.API.Models.Role", null)
                         .WithMany("Employees")
                         .HasForeignKey("RoleID");
-                });
-
-            modelBuilder.Entity("FullStack.API.Models.User", b =>
-                {
-                    b.HasOne("FullStack.API.Models.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("FullStack.API.Models.UserRole", b =>

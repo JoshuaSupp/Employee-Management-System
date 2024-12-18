@@ -33,10 +33,21 @@ namespace FullStack.API.Controllers
         [HttpPost("LoginUser")]
         public IActionResult Login(Login user)
         {
-            var userAvaiable = _fullStackDbContext.Users.Where(u => u.Email == user.Email && u.Pwd == user.Pwd).FirstOrDefault(); 
-            if(userAvaiable != null)
+            // var userAvaiable = _fullStackDbContext.Users.Where(u => u.Email == user.Email && u.Pwd == user.Pwd).FirstOrDefault();
+
+            var userEntity = _fullStackDbContext.Users
+            .FirstOrDefault(u => u.Email == user.Email && u.Pwd == user.Pwd);
+
+            var employeeEntity = _fullStackDbContext.Employees
+                .FirstOrDefault(e => e.Email == user.Email && e.Pwd == user.Pwd);
+
+            if (userEntity != null)
             {
-                return Ok("Success");
+                return Ok(new { status = "Success", role = "Admin" });
+            }
+            else if (employeeEntity != null)
+            {
+                return Ok(new { status = "Success", role = "Employee" });
             }
             return Ok("Failure");
         }

@@ -10,6 +10,8 @@
         public string Gender { get; set; }
         public string Pwd { get; set; }
         public DateTime MemberSince { get; set; }
+        public int RoleID { get; set; }
+        public Role Role { get; set; } = null!;
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
     }
 }

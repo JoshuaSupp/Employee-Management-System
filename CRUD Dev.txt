@@ -7,3 +7,5 @@ TODO
 
 Working On
 Creating RBAC for Users and employees - update routing for both roles 
+
+Check how to login with both user roles

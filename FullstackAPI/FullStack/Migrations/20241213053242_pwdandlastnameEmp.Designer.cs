@@ -4,6 +4,7 @@ using FullStack.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullStack.API.Migrations
 {
     [DbContext(typeof(FullStackDbContext))]
-    partial class FullStackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241213053242_pwdandlastnameEmp")]
+    partial class pwdandlastnameEmp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,15 +48,10 @@ namespace FullStack.API.Migrations
                     b.Property<string>("Pwd")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoleID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Salary")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoleID");
 
                     b.ToTable("Employees");
                 });
@@ -104,12 +101,7 @@ namespace FullStack.API.Migrations
                     b.Property<string>("Pwd")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoleID")
-                        .HasColumnType("int");
-
                     b.HasKey("UserID");
-
-                    b.HasIndex("RoleID");
 
                     b.ToTable("Users");
                 });
@@ -137,24 +129,6 @@ namespace FullStack.API.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("FullStack.API.Models.Employee", b =>
-                {
-                    b.HasOne("FullStack.API.Models.Role", null)
-                        .WithMany("Employees")
-                        .HasForeignKey("RoleID");
-                });
-
-            modelBuilder.Entity("FullStack.API.Models.User", b =>
-                {
-                    b.HasOne("FullStack.API.Models.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-                });
-
             modelBuilder.Entity("FullStack.API.Models.UserRole", b =>
                 {
                     b.HasOne("FullStack.API.Models.Role", "Role")
@@ -176,8 +150,6 @@ namespace FullStack.API.Migrations
 
             modelBuilder.Entity("FullStack.API.Models.Role", b =>
                 {
-                    b.Navigation("Employees");
-
                     b.Navigation("UserRoles");
                 });
 
