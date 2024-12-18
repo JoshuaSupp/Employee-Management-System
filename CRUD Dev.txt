@@ -1,11 +1,10 @@
 CRUD Dev
 
 TODO
-1) Access token when logging in
-2) Login from Users and employees table (RBAC)
+1) Access token when logging in - done (but have to make sessions)
+2) Login from Users and employees table (RBAC) - done
 
 
 Working On
-Creating RBAC for Users and employees - update routing for both roles 
 
-Check how to login with both user roles
+1) create my profile page with image upload and personal info of employee
