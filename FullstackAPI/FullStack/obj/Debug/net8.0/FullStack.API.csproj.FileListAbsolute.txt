@@ -66,3 +66,4 @@ D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\refint\FullStack.API.dll
 D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\FullStack.API.pdb
 D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\FullStack.API.genruntimeconfig.cache
 D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\ref\FullStack.API.dll
+D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\FullStack.API.sourcelink.json
