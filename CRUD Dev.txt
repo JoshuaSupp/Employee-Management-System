@@ -1,10 +1,11 @@
 CRUD Dev
 
-TODO
+TODO Bugs
 1) Access token when logging in - done (but have to make sessions)
 2) Login from Users and employees table (RBAC) - done
-
+3) Name does not stay when the page is refreshed or changed
 
 Working On
 
-1) create my profile page with image upload and personal info of employee
+1) Create tables in my profile page according to db - inprogress
+2) create my profile page with image upload and personal info of employee - TODO
