@@ -135,7 +135,19 @@ namespace FullStack.API.Controllers
                     userAvailable.LastName,
                     userAvailable.Email,
                     userAvailable.Mobile,
-                    userAvailable.Gender
+                    userAvailable.Gender,
+                    userAvailable.RoleID.ToString(),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+
                 );
 
                 return Ok(new
@@ -153,25 +165,41 @@ namespace FullStack.API.Controllers
 
             if (employeeAvailable != null)
             {
+                var employeeId = employeeAvailable.EmployeeId;
+                
+
                 var token = new JwtService(_config).GenerateToken(
                     employeeAvailable.Id.ToString(),  // Employee's unique ID (use as UserID or other identifier)
                     employeeAvailable.Name,
                     employeeAvailable.LastName,
                     employeeAvailable.Email,
-                    employeeAvailable.Phone, // Assuming employees have a phone field
-                    "Employee" // Or some other default gender or value you want to return
+                    employeeAvailable.Phone,
+                    employeeAvailable.Gender,
+                    "2",
+                    employeeAvailable.EmployeeId.ToString(),
+                    employeeAvailable.DOB,
+                    employeeAvailable.MaritalStatus,
+                    employeeAvailable.BloodGroup,
+                    employeeAvailable.MiddleName,
+                    employeeAvailable.CallingName,
+                    employeeAvailable.PersonalEmail,
+                    employeeAvailable.PersonalPhone,
+                    employeeAvailable.Title,
+                    employeeAvailable.Department
+
                 );
 
                 return Ok(new
                 {
                     status = "Success",
-                    roleId = 2, // Assuming employees have a different roleId, modify as needed
+                    roleId = 2,
+                   // employeeId = employeeAvailable.EmployeeId,
                     token = token
                 });
             }
 
             // If neither user nor employee is found
-            return Ok(new { status = "Failure" });
+            return Unauthorized(new { status = "Failure", message = "Invalid login credentials" });
         }
 
     }
