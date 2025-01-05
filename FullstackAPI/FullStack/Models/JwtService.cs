@@ -21,7 +21,7 @@ namespace FullStack.API.Models
             this.TokenDuration = Int32.Parse(config.GetSection("jwtConfig").GetSection("Duration").Value);
         }
 
-        public string GenerateToken(string id, string firstname, string lastname, string email, string mobile, string gender, string roleId, string employeeId, string dob, string maritalstatus, string bloodgroup, string middlename, string callingname, string personalemail, string personalphone, string title, string department)
+        public string GenerateToken(string id, string firstname, string name, string lastname, string email, string mobile, string gender, string roleId, string employeeId, string dob, string maritalstatus, string bloodgroup, string middlename, string callingname, string personalemail, string personalphone, string title, string department, string permanentaddress, string personaladdress)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.SecretKey));
             var signature = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -30,14 +30,18 @@ namespace FullStack.API.Models
             var claims = new List<Claim>
             {
                 new Claim("id", id),
-                new Claim("firstname", firstname),
-                new Claim("lastname", lastname),
-                new Claim("email", email),
-                new Claim("mobile", mobile),
-                new Claim("gender", gender),
-                new Claim("roleid", roleId)
+                new Claim("firstname", firstname ?? "FirstName"),
+                new Claim("lastname", lastname ?? "LastName"),
+                new Claim("email", email ?? "Email"),
+                new Claim("mobile", mobile ?? "Mobile"),
+                new Claim("gender", gender ?? "Gender"),
+                new Claim("roleid", roleId),
             };
 
+            if (!string.IsNullOrEmpty(name))  // Add employeeId claim only for employees
+            {
+                claims.Add(new Claim("name", name));
+            }
             if (!string.IsNullOrEmpty(employeeId))  // Add employeeId claim only for employees
             {
                 claims.Add(new Claim("employeeId", employeeId));
@@ -78,6 +82,16 @@ namespace FullStack.API.Models
             if (!string.IsNullOrEmpty(department))  // Add department claim only for employees
             {
                 claims.Add(new Claim("department", department));
+            }
+
+            if (!string.IsNullOrEmpty(permanentaddress))  // Add permanentaddress claim only for employees
+            {
+                claims.Add(new Claim("permanentaddress", permanentaddress));
+            }
+
+            if (!string.IsNullOrEmpty(personaladdress))  // Add personaladdress claim only for employees
+            {
+                claims.Add(new Claim("personaladdress", personaladdress));
             }
 
             var jwtToken = new JwtSecurityToken(

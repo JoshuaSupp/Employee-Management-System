@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "GetEmployeeProfile",
+    "RelativePath": "api/Employees/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
     "Method": "GetEmployee",
     "RelativePath": "api/Employees/{id}",
     "HttpMethod": "GET",
@@ -121,6 +137,38 @@
       {
         "Name": "user",
         "Type": "FullStack.API.Models.Login",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "GetEmployeeName",
+    "RelativePath": "employeeName/{employeeId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "updateProfileEmployee",
+    "RelativePath": "updateEmployee",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "FullStack.API.Models.Employee",
         "IsRequired": true
       }
     ],

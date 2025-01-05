@@ -67,3 +67,7 @@ D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\FullStack.API.pdb
 D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\FullStack.API.genruntimeconfig.cache
 D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\ref\FullStack.API.dll
 D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\FullStack.API.sourcelink.json
+D:\MyCrudAPP\FullstackAPI\FullStack\bin\Debug\net8.0\FullStack.API.staticwebassets.endpoints.json
+D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\staticwebassets\msbuild.FullStack.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\MyCrudAPP\FullstackAPI\FullStack\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
