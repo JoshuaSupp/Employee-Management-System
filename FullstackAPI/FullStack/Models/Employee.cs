@@ -21,6 +21,9 @@
         public string MaritalStatus { get; set; }
         public string BloodGroup { get; set; }
         public string ProfileImage { get; set; }
+        public string PersonalAddress { get; set; }
+        public string PermanentAddress { get; set; }
+
         //public int RoleID { get; set; }
         //public Role Role { get; set; } = null!;
 
