@@ -71,24 +71,7 @@ namespace FullStack.API.Controllers
 
         }
 
-        //todo find correct API endpoint link
-        //get employee name from employeeid
-        [HttpGet]
-        [Route("/employeeName/{employeeId:Int}")]
-        public async Task<IActionResult> GetEmployeeName([FromRoute] int employeeId)
-        {
-            var employee = await _fullStackDbContext.Employees.FirstOrDefaultAsync(x => x.EmployeeId == employeeId);
-
-            if (employee == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(new { employee.Name, employee.LastName });
-
-        }
-
-
+       
         //update employee in admin
         [HttpPut]
         [Route("{id:Guid}")]
@@ -160,30 +143,44 @@ namespace FullStack.API.Controllers
             return Ok(employee);
         }
 
-        //login user used
-        //[AllowAnonymous]
-        //[HttpPost("LoginUser")]
-        //public IActionResult Login(Login user)
-        //{
-        //    var userAvaiable = _fullStackDbContext.Users.Where(u => u.Email == user.Email && u.Pwd == user.Pwd).FirstOrDefault();
-        //    if (userAvaiable != null)
-        //    {
-        //        return Ok(new JwtService(_config).GenerateToken(
-        //            userAvaiable.UserID.ToString(),
-        //            userAvaiable.FirstName,
-        //            userAvaiable.LastName,
-        //            userAvaiable.Email,
-        //            userAvaiable.Mobile,
-        //            userAvaiable.Gender
-        //        )
-        //    );
+      
+        //upload profile picture for my profile
+        [HttpPost("uploadProfilePicture/{id:Guid}")]
+        public async Task<IActionResult> UploadProfilePicture(Guid Id, IFormFile profilePicture)
+        {
+            if (profilePicture == null || profilePicture.Length == 0)
+                return BadRequest("No file uploaded.");
 
-        //    }
-        //    return Ok("Failure");
-        //}
+            // Define the uploads directory
+            var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "profileuploads");
+
+            // Create the directory if it does not exist
+            Directory.CreateDirectory(uploadsDirectory);
+
+            // Generate a unique file name to avoid conflicts
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(profilePicture.FileName);
+            var filePath = Path.Combine(uploadsDirectory, fileName);
+
+            // Save the uploaded file
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await profilePicture.CopyToAsync(stream);
+            }
+
+            // Save the image path to the database
+            var imagePath = $"/uploads/{fileName}"; // Relative path to access from web
+            var employee = await _fullStackDbContext.Employees.FindAsync(Id);
+
+            if (employee == null)
+                return NotFound("Employee not found.");
+
+            employee.ProfileImage = imagePath; // Store the relative path in ProfileImage column
+            await _fullStackDbContext.SaveChangesAsync(); // Save changes to the database
+
+            return Ok(new { message = "Profile picture uploaded successfully!", imagePath });
+        }
 
 
-     
         [AllowAnonymous]
         [HttpPost("LoginUser")]
         public IActionResult Login(Login user)

@@ -111,6 +111,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "UploadProfilePicture",
+    "RelativePath": "api/Employees/uploadProfilePicture/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "profilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FullStack.API.Controllers.UserController",
     "Method": "Create",
     "RelativePath": "api/User/CreateUser",
@@ -137,22 +158,6 @@
       {
         "Name": "user",
         "Type": "FullStack.API.Models.Login",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FullStack.API.Controllers.EmployeesController",
-    "Method": "GetEmployeeName",
-    "RelativePath": "employeeName/{employeeId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "employeeId",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

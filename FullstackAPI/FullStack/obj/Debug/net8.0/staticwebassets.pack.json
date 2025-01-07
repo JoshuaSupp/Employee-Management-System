@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\uploads\\cba3f66a-0766-46c7-810b-0af4a10e8521.jpg",
+      "PackagePath": "staticwebassets\\uploads\\cba3f66a-0766-46c7-810b-0af4a10e8521.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FullStack.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FullStack.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FullStack.API.props",
+      "PackagePath": "build\\FullStack.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FullStack.API.props",
+      "PackagePath": "buildMultiTargeting\\FullStack.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FullStack.API.props",
+      "PackagePath": "buildTransitive\\FullStack.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -52,6 +52,13 @@ namespace tes
 
             app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+            app.UseCors(builder =>
+            builder.WithOrigins("http://localhost:4200") // Your Angular app's URL
+                   .AllowAnyHeader()
+                   .AllowAnyMethod());
+
+            app.UseStaticFiles();
+
             app.UseAuthorization();
 
             app.UseRouting();

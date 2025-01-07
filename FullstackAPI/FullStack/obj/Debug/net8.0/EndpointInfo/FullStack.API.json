@@ -153,29 +153,6 @@
         }
       }
     },
-    "/employeeName/{employeeId}": {
-      "get": {
-        "tags": [
-          "Employees"
-        ],
-        "parameters": [
-          {
-            "name": "employeeId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/updateEmployee": {
       "put": {
         "tags": [
@@ -196,6 +173,49 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/Employee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Employees/uploadProfilePicture/{id}": {
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profilePicture": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "profilePicture": {
+                  "style": "form"
+                }
               }
             }
           }
