@@ -1,6 +1,22 @@
 {
   "Files": [
     {
+      "Id": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg",
+      "PackagePath": "staticwebassets\\profileuploads\\1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg"
+    },
+    {
+      "Id": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\7336c701-897e-495a-b28d-dfff8c012dc4.jpg",
+      "PackagePath": "staticwebassets\\profileuploads\\7336c701-897e-495a-b28d-dfff8c012dc4.jpg"
+    },
+    {
+      "Id": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\741b7193-565f-493e-a872-06fde40f0fef.jpg",
+      "PackagePath": "staticwebassets\\profileuploads\\741b7193-565f-493e-a872-06fde40f0fef.jpg"
+    },
+    {
+      "Id": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg",
+      "PackagePath": "staticwebassets\\profileuploads\\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg"
+    },
+    {
       "Id": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\uploads\\cba3f66a-0766-46c7-810b-0af4a10e8521.jpg",
       "PackagePath": "staticwebassets\\uploads\\cba3f66a-0766-46c7-810b-0af4a10e8521.jpg"
     },

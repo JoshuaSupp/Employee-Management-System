@@ -1,6 +1,2 @@
-D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\uploads\06e99abe-e68e-4183-a699-f5deab651558.png
-D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\uploads\396f7102-9ef3-4215-b08d-a0791fd6ce76.png
-D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\uploads\5a859e3d-6f15-4452-bb84-019d7fbae16d.png
-D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\uploads\6b8cd2d5-172c-4831-81e7-bc6967a4bf9e.png
-D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\uploads\8a1d99de-abfb-42f8-8b8f-48a7bfa950f0.png
-D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\uploads\Joshua Emmanuel Suppiah .png
+D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\profileuploads\7336c701-897e-495a-b28d-dfff8c012dc4.jpg
+D:\MyCrudAPP\FullstackAPI\FullStack\wwwroot\profileuploads\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg

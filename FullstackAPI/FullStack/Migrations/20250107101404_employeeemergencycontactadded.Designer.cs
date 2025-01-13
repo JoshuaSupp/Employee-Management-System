@@ -4,6 +4,7 @@ using FullStack.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullStack.API.Migrations
 {
     [DbContext(typeof(FullStackDbContext))]
-    partial class FullStackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250107101404_employeeemergencycontactadded")]
+    partial class employeeemergencycontactadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,7 @@ namespace FullStack.API.Migrations
 
                     b.HasIndex("EmployeeGuidId");
 
-                    b.ToTable("EmergencyContacts", (string)null);
+                    b.ToTable("EmergencyContacts");
                 });
 
             modelBuilder.Entity("FullStack.API.Models.Employee", b =>
@@ -134,7 +136,7 @@ namespace FullStack.API.Migrations
 
                     b.HasIndex("RoleID");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("FullStack.API.Models.Role", b =>
@@ -150,7 +152,7 @@ namespace FullStack.API.Migrations
 
                     b.HasKey("RoleID");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("FullStack.API.Models.User", b =>
@@ -189,7 +191,7 @@ namespace FullStack.API.Migrations
 
                     b.HasIndex("RoleID");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("FullStack.API.Models.UserRole", b =>
@@ -212,7 +214,7 @@ namespace FullStack.API.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("FullStack.API.Models.EmergencyContact", b =>

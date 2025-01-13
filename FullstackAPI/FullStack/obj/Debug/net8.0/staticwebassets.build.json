@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TidGTIMuEwPBk3AjyZK8DagvlZIokDUvV5dzaewnuCE=",
+  "Hash": "WaK+IEoY7O7e6HiJWZkcmvv1nyknwSvXG2rSj3lhzvA=",
   "Source": "FullStack.API",
   "BasePath": "_content/FullStack.API",
   "Mode": "Default",
@@ -16,6 +16,90 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg",
+      "SourceId": "FullStack.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\",
+      "BasePath": "_content/FullStack.API",
+      "RelativePath": "profileuploads/1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s68zxt4eb8",
+      "Integrity": "NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profileuploads\\1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg"
+    },
+    {
+      "Identity": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\7336c701-897e-495a-b28d-dfff8c012dc4.jpg",
+      "SourceId": "FullStack.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\",
+      "BasePath": "_content/FullStack.API",
+      "RelativePath": "profileuploads/7336c701-897e-495a-b28d-dfff8c012dc4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s68zxt4eb8",
+      "Integrity": "NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profileuploads\\7336c701-897e-495a-b28d-dfff8c012dc4.jpg"
+    },
+    {
+      "Identity": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\741b7193-565f-493e-a872-06fde40f0fef.jpg",
+      "SourceId": "FullStack.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\",
+      "BasePath": "_content/FullStack.API",
+      "RelativePath": "profileuploads/741b7193-565f-493e-a872-06fde40f0fef#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j7afb9zq5b",
+      "Integrity": "kb+4O2Xfb3ejJ73wS2657744SmeZbhoIn/ZiLJDg16Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profileuploads\\741b7193-565f-493e-a872-06fde40f0fef.jpg"
+    },
+    {
+      "Identity": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg",
+      "SourceId": "FullStack.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\",
+      "BasePath": "_content/FullStack.API",
+      "RelativePath": "profileuploads/c8e90aa2-687d-448d-86f8-0c639b498a61#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s68zxt4eb8",
+      "Integrity": "NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\profileuploads\\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg"
+    },
     {
       "Identity": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\uploads\\cba3f66a-0766-46c7-810b-0af4a10e8521.jpg",
       "SourceId": "FullStack.API",
@@ -39,6 +123,334 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "profileuploads/1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68107"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:56:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.s68zxt4eb8.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68107"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:56:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s68zxt4eb8"
+        },
+        {
+          "Name": "label",
+          "Value": "profileuploads/1e4ac7a9-90b7-4bb1-b21a-8f6c3c6e4837.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/7336c701-897e-495a-b28d-dfff8c012dc4.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\7336c701-897e-495a-b28d-dfff8c012dc4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68107"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:51:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/7336c701-897e-495a-b28d-dfff8c012dc4.s68zxt4eb8.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\7336c701-897e-495a-b28d-dfff8c012dc4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68107"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:51:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s68zxt4eb8"
+        },
+        {
+          "Name": "label",
+          "Value": "profileuploads/7336c701-897e-495a-b28d-dfff8c012dc4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/741b7193-565f-493e-a872-06fde40f0fef.j7afb9zq5b.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\741b7193-565f-493e-a872-06fde40f0fef.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "241171"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kb+4O2Xfb3ejJ73wS2657744SmeZbhoIn/ZiLJDg16Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:57:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j7afb9zq5b"
+        },
+        {
+          "Name": "label",
+          "Value": "profileuploads/741b7193-565f-493e-a872-06fde40f0fef.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-kb+4O2Xfb3ejJ73wS2657744SmeZbhoIn/ZiLJDg16Y="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/741b7193-565f-493e-a872-06fde40f0fef.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\741b7193-565f-493e-a872-06fde40f0fef.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "241171"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kb+4O2Xfb3ejJ73wS2657744SmeZbhoIn/ZiLJDg16Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:57:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kb+4O2Xfb3ejJ73wS2657744SmeZbhoIn/ZiLJDg16Y="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/c8e90aa2-687d-448d-86f8-0c639b498a61.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68107"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:52:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg="
+        }
+      ]
+    },
+    {
+      "Route": "profileuploads/c8e90aa2-687d-448d-86f8-0c639b498a61.s68zxt4eb8.jpg",
+      "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\profileuploads\\c8e90aa2-687d-448d-86f8-0c639b498a61.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "68107"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 09:52:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s68zxt4eb8"
+        },
+        {
+          "Name": "label",
+          "Value": "profileuploads/c8e90aa2-687d-448d-86f8-0c639b498a61.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NCn6g9XtTAZIcVX4tUxkgpkaANI/DEe2ad/Im5L9odg="
+        }
+      ]
+    },
     {
       "Route": "uploads/cba3f66a-0766-46c7-810b-0af4a10e8521.j7afb9zq5b.jpg",
       "AssetFile": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\wwwroot\\uploads\\cba3f66a-0766-46c7-810b-0af4a10e8521.jpg",

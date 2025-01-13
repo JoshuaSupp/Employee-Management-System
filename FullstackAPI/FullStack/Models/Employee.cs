@@ -24,9 +24,7 @@
         public string PersonalAddress { get; set; }
         public string PermanentAddress { get; set; }
 
-        //public int RoleID { get; set; }
-        //public Role Role { get; set; } = null!;
-
+     //   public EmergencyContact EmergencyContact { get; set; }
 
     }
 }

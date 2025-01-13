@@ -5,10 +5,10 @@ TODO Bugs
 2) Login from Users and employees table (RBAC) - done
 3) Name does not stay when the page is refreshed or changed - fixed
 4) The update doesn't happen properly and once its refreshed the updated data should be shown - fixed
-5) Toast message doesn't work - todo
+5) Toast message doesn't work - Done (does not work for emergency contact)
 
 Working On
 
-1) Update profile function - InProgress (add toast message)
+1) Add different table for emergency contacts for emp - done
 2) Create tables in my profile page according to db. - InProgress
 3) create my profile page with image upload and personal info of employee - Inprogress

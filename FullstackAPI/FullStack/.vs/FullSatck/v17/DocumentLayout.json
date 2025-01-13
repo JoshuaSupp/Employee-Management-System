@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\models\\emergencycontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:models\\emergencycontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,8 +23,8 @@
       "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:models\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|d:\\mycrudapp\\fullstackapi\\fullstack\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6EB0748-59A8-4B5D-9DC6-4F82943C4EE4}|FullStack.API.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -51,46 +47,32 @@
               "ViewState": "AgIAABAAAAAAAAAAAAAgwCUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-15T10:49:14.647Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwDsAAAAeAAAAAAAAAA==",
+              "Title": "EmergencyContact.cs",
+              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\EmergencyContact.cs",
+              "RelativeDocumentMoniker": "Models\\EmergencyContact.cs",
+              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\EmergencyContact.cs",
+              "RelativeToolTip": "Models\\EmergencyContact.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T07:33:58.922Z",
+              "WhenOpened": "2025-01-07T14:36:47.503Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-07T05:35:24.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\JwtService.cs",
-              "RelativeDocumentMoniker": "Models\\JwtService.cs",
-              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\JwtService.cs",
-              "RelativeToolTip": "Models\\JwtService.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAwwCgAAAAMAAAAAAAAAA==",
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Models\\Employee.cs",
+              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\Employee.cs",
+              "RelativeToolTip": "Models\\Employee.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAywBoAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T11:17:17.498Z"
+              "WhenOpened": "2025-01-07T13:28:48.287Z"
             },
             {
               "$type": "Document",
@@ -100,7 +82,7 @@
               "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
               "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAgwJoAAABkAAAAAAAAAA==",
+              "ViewState": "AgIAAPQAAAAAAAAAAAAmwP0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-17T12:40:17.275Z",
               "EditorCaption": ""
@@ -108,27 +90,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "Models\\Employee.cs",
-              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\Employee.cs",
-              "RelativeToolTip": "Models\\Employee.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAIA8wBYAAAAGAAAAAAAAAA==",
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\JwtService.cs",
+              "RelativeDocumentMoniker": "Models\\JwtService.cs",
+              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\JwtService.cs",
+              "RelativeToolTip": "Models\\JwtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T18:52:58.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-19T11:17:17.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\MyCrudAPP\\FullstackAPI\\FullStack\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAwwEUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:03:35.546Z"
+              "WhenOpened": "2025-01-07T07:33:58.922Z"
             }
           ]
         }

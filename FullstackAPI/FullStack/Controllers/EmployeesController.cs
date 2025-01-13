@@ -71,7 +71,24 @@ namespace FullStack.API.Controllers
 
         }
 
-       
+        //load emergency contact data
+        [HttpGet]
+        [Route("/api/employees/GetEmergencyContactData/{id:Guid}")]
+        public async Task<IActionResult> GetEmergencyContactData([FromRoute] Guid id)
+        {
+            //Console.WriteLine($"Received request for Emergency Contact with ID: {id}");
+            var employee = await _fullStackDbContext.EmergencyContacts.FirstOrDefaultAsync(x => x.EmployeeGuidId == id);
+
+            if (employee == null)
+            {
+                Console.WriteLine("No emergency contact found.");
+                return NotFound();
+            }
+
+            return Ok(employee);
+        }
+
+
         //update employee in admin
         [HttpPut]
         [Route("{id:Guid}")]
@@ -124,6 +141,89 @@ namespace FullStack.API.Controllers
             return Ok(existingUser);
         }
 
+        //To get the emergency contact data
+        [HttpPut("/updateEmergency")]
+        public async Task<IActionResult> GetEmergencyContact(Guid employeeId)
+        {
+            var emergencyContact = await _fullStackDbContext.EmergencyContacts
+                .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employeeId);
+
+            if (emergencyContact == null)
+            {
+                return NotFound("Emergency contact not found");
+            }
+
+            return Ok(emergencyContact);
+        }
+
+
+        //add or update employee emergency contact (employee)
+        [HttpPut("/addEmergencyContact")]
+        public async Task<IActionResult> AddEmergencyContact([FromBody] EmergencyContact user)
+        {
+            // Check if EmployeeGuidId is provided
+            if (user.EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId from the user object
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == user.EmployeeGuidId);
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Find the existing emergency contact associated with the employee
+            var existingContact = await _fullStackDbContext.EmergencyContacts
+                .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employee.Id);
+
+            if (existingContact != null)
+            {
+                // Update properties of the existing emergency contact
+                existingContact.FullName = user.FullName;
+                existingContact.Relationship = user.Relationship;
+                existingContact.DOB = user.DOB;
+                existingContact.Email = user.Email;
+                existingContact.Phone = user.Phone;
+                existingContact.CompanyName = user.CompanyName;
+                existingContact.Address = user.Address;
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return updated emergency contact
+                return Ok(existingContact);
+            }
+            else
+            {
+                // Create a new emergency contact and associate it with the employee
+                var emergencyContact = new EmergencyContact
+                {
+                    EmployeeGuidId = employee.Id, // Set EmployeeGuidId to the Employee's Id
+                    FullName = user.FullName,
+                    Relationship = user.Relationship,
+                    DOB = user.DOB,
+                    Email = user.Email,
+                    Phone = user.Phone,
+                    CompanyName = user.CompanyName,
+                    Address = user.Address
+                };
+
+                // Add the new emergency contact to the database
+                await _fullStackDbContext.EmergencyContacts.AddAsync(emergencyContact);
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return created emergency contact
+                return CreatedAtAction(nameof(AddEmergencyContact), new { id = emergencyContact.Id }, emergencyContact);
+            }
+        }
+
         //delete employee in admin
         [HttpDelete]
         [Route("{id:Guid}")]
@@ -168,7 +268,7 @@ namespace FullStack.API.Controllers
             }
 
             // Save the image path to the database
-            var imagePath = $"/uploads/{fileName}"; // Relative path to access from web
+            var imagePath = $"/profileuploads/{fileName}"; // Relative path to access from web
             var employee = await _fullStackDbContext.Employees.FindAsync(Id);
 
             if (employee == null)
