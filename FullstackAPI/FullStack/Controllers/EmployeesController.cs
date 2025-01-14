@@ -135,7 +135,14 @@ namespace FullStack.API.Controllers
             existingUser.BloodGroup = user.BloodGroup;
             existingUser.PersonalAddress = user.PersonalAddress;
             existingUser.PermanentAddress = user.PermanentAddress;
+            existingUser.PersonalPhone = user.PersonalPhone;
+            existingUser.Phone = user.Phone;
+            existingUser.Title = user.Title;
+            existingUser.Gender = user.Gender;
+            existingUser.Email = user.Email;
+            existingUser.PersonalEmail = user.PersonalEmail;
 
+            
             await _fullStackDbContext.SaveChangesAsync();
 
             return Ok(existingUser);
