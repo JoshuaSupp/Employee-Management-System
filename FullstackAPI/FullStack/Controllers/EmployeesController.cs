@@ -88,6 +88,35 @@ namespace FullStack.API.Controllers
             return Ok(employee);
         }
 
+        // Get employee designation(s) by employee ID
+        [HttpGet("/designations/{EmployeeGuidId}")]
+        public async Task<IActionResult> GetDesignations(Guid EmployeeGuidId)
+        {
+            // Check if EmployeeGuidId is provided
+            if (EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == EmployeeGuidId); // Ensure this matches your Employee's Id property
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Retrieve all designations associated with the employee
+            var designations = await _fullStackDbContext.Designation
+                .Where(d => d.EmployeeGuidId == EmployeeGuidId) // Filter by EmployeeGuidId
+                .ToListAsync();
+
+            // Return the list of designations
+            return Ok(designations);
+        }
+
 
         //update employee in admin
         [HttpPut]
@@ -149,19 +178,19 @@ namespace FullStack.API.Controllers
         }
 
         //To get the emergency contact data
-        [HttpPut("/updateEmergency")]
-        public async Task<IActionResult> GetEmergencyContact(Guid employeeId)
-        {
-            var emergencyContact = await _fullStackDbContext.EmergencyContacts
-                .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employeeId);
+        //[HttpPut("/updateEmergency")]
+        //public async Task<IActionResult> GetEmergencyContact(Guid employeeId)
+        //{
+        //    var emergencyContact = await _fullStackDbContext.EmergencyContacts
+        //        .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employeeId);
 
-            if (emergencyContact == null)
-            {
-                return NotFound("Emergency contact not found");
-            }
+        //    if (emergencyContact == null)
+        //    {
+        //        return NotFound("Emergency contact not found");
+        //    }
 
-            return Ok(emergencyContact);
-        }
+        //    return Ok(emergencyContact);
+        //}
 
 
         //add or update employee emergency contact (employee)
@@ -230,6 +259,70 @@ namespace FullStack.API.Controllers
                 return CreatedAtAction(nameof(AddEmergencyContact), new { id = emergencyContact.Id }, emergencyContact);
             }
         }
+
+        //add or update employee designation (admin) [later todo]
+        [HttpPut("/addDesignation")]
+        public async Task<IActionResult> AddDesignation ([FromBody] Designation user)
+        {
+            // Check if EmployeeGuidId is provided
+            if (user.EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId from the user object
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == user.EmployeeGuidId);
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Find the existing emergency contact associated with the employee
+            var existingContact = await _fullStackDbContext.Designation
+                .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employee.Id);
+
+            if (existingContact != null)
+            {
+                // Update properties of the existing emergency contact
+                existingContact.EmployeeDesignation = user.EmployeeDesignation;
+                existingContact.DateFrom = user.DateFrom;
+                existingContact.DateTo = user.DateTo;
+                existingContact.Duration = user.Duration;
+                existingContact.Remarks = user.Remarks;
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return updated emergency contact
+                return Ok(existingContact);
+            }
+            else
+            {
+                // Create a new emergency contact and associate it with the employee
+                var designation = new Designation
+                {
+                    EmployeeGuidId = employee.Id, // Set EmployeeGuidId to the Employee's Id
+                    EmployeeDesignation = user.EmployeeDesignation,
+                    DateFrom = user.DateFrom,
+                    DateTo = user.DateTo,
+                    Duration = user.Duration,
+                    Remarks = user.Remarks,
+                };
+
+                // Add the new emergency contact to the database
+                await _fullStackDbContext.Designation.AddAsync(designation);
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return created emergency contact
+                return CreatedAtAction(nameof(AddEmergencyContact), new { id = designation.Id }, designation);
+            }
+        }
+
 
         //delete employee in admin
         [HttpDelete]

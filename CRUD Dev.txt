@@ -6,9 +6,11 @@ TODO Bugs
 3) Name does not stay when the page is refreshed or changed - fixed
 4) The update doesn't happen properly and once its refreshed the updated data should be shown - fixed
 5) Toast message doesn't work - Done (does not work for emergency contact)
+6) After logging in the page does not fully redirect to the other page (admin and employee) - fixed
 
 Working On
 
 1) Add different table for emergency contacts for emp - done
 2) Create tables in my profile page according to db. - InProgress
-3) create my profile page with image upload and personal info of employee - Inprogress
+3) create my profile page with image upload and personal info of employee - InProgress (add HR coordinators - just display)
+4) Add new fields when adding an employee and also add designation [make it a multi page add with steps (1,2..)] admin - 

@@ -176,6 +176,29 @@
         }
       }
     },
+    "/designations/{EmployeeGuidId}": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "parameters": [
+          {
+            "name": "EmployeeGuidId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/updateEmployee": {
       "put": {
         "tags": [
@@ -207,28 +230,6 @@
         }
       }
     },
-    "/updateEmergency": {
-      "put": {
-        "tags": [
-          "Employees"
-        ],
-        "parameters": [
-          {
-            "name": "employeeId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/addEmergencyContact": {
       "put": {
         "tags": [
@@ -249,6 +250,37 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/EmergencyContact"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/addDesignation": {
+      "put": {
+        "tags": [
+          "Employees"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Designation"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Designation"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Designation"
               }
             }
           }
@@ -481,6 +513,43 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "Designation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "employeeGuidId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "employeeDesignation": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "nullable": true
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "employee": {
+            "$ref": "#/components/schemas/Employee"
+          }
+        },
+        "additionalProperties": false
       },
       "EmergencyContact": {
         "type": "object",

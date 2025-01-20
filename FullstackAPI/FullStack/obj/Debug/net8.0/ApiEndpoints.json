@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "AddDesignation",
+    "RelativePath": "addDesignation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "FullStack.API.Models.Designation",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
     "Method": "AddEmergencyContact",
     "RelativePath": "addEmergencyContact",
     "HttpMethod": "PUT",
@@ -197,16 +213,16 @@
   },
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
-    "Method": "GetEmergencyContact",
-    "RelativePath": "updateEmergency",
-    "HttpMethod": "PUT",
+    "Method": "GetDesignations",
+    "RelativePath": "designations/{EmployeeGuidId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "employeeId",
+        "Name": "EmployeeGuidId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
