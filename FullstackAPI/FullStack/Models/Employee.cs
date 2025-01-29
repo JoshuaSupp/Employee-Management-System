@@ -23,7 +23,7 @@
         public string ProfileImage { get; set; }
         public string PersonalAddress { get; set; }
         public string PermanentAddress { get; set; }
-
+        public Boolean IsActive { get; set; }
      //   public EmergencyContact EmergencyContact { get; set; }
 
     }

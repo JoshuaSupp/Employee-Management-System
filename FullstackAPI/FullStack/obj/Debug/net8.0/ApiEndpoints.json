@@ -229,6 +229,22 @@
   },
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "UpdateDesignation",
+    "RelativePath": "updateDesignation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateDesignationRequest",
+        "Type": "FullStack.API.Models.Designation",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
     "Method": "updateProfileEmployee",
     "RelativePath": "updateEmployee",
     "HttpMethod": "PUT",

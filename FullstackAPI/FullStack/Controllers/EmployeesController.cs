@@ -23,7 +23,8 @@ namespace FullStack.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllEmployees()
         {
-            var employees = await _fullStackDbContext.Employees.ToListAsync();
+
+            var employees = await _fullStackDbContext.Employees.Where(e => e.IsActive).ToListAsync();
             return Ok(employees);
         }
 
@@ -32,6 +33,7 @@ namespace FullStack.API.Controllers
         public async Task<IActionResult> AddEmployee([FromBody] Employee employeeRequest)
         {
             employeeRequest.Id = Guid.NewGuid();
+            employeeRequest.IsActive = true;
             await _fullStackDbContext.Employees.AddAsync(employeeRequest);
             await _fullStackDbContext.SaveChangesAsync();
 
@@ -130,10 +132,18 @@ namespace FullStack.API.Controllers
                 return NotFound();
             }
 
+            employee.EmployeeId = updateEmployeeRequest.EmployeeId;
             employee.Name = updateEmployeeRequest.Name;
+            employee.MiddleName = updateEmployeeRequest.MiddleName;
             employee.LastName = updateEmployeeRequest.LastName;
+            employee.DOB = updateEmployeeRequest.DOB;
             employee.Email = updateEmployeeRequest.Email;
+            employee.Pwd = updateEmployeeRequest.Pwd;
+            employee.Gender = updateEmployeeRequest.Gender;
+            employee.BloodGroup = updateEmployeeRequest.BloodGroup;
             employee.Phone = updateEmployeeRequest.Phone;
+            employee.PersonalAddress = updateEmployeeRequest.PersonalAddress;
+            employee.PermanentAddress = updateEmployeeRequest.PermanentAddress;
             employee.Salary = updateEmployeeRequest.Salary;
             employee.Department = updateEmployeeRequest.Department;
 
@@ -142,8 +152,72 @@ namespace FullStack.API.Controllers
             return Ok(employee);
         }
 
-      
-        //update employee profile (employee)
+
+        //update designation in admin
+
+        [HttpPut("/updateDesignation")]
+        public async Task<IActionResult> UpdateDesignation([FromBody] Designation updateDesignationRequest)
+        {
+            // Check if EmployeeGuidId is provided
+            if (updateDesignationRequest.EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId from the request object
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == updateDesignationRequest.EmployeeGuidId);
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Find the existing designation associated with the employee
+            var designation = await _fullStackDbContext.Designation
+                .FirstOrDefaultAsync(d => d.EmployeeGuidId == employee.Id);
+
+            if (designation != null)
+            {
+                // Update properties of the existing designation
+                designation.EmployeeDesignation = updateDesignationRequest.EmployeeDesignation;
+                designation.DateFrom = updateDesignationRequest.DateFrom;
+                designation.DateTo = updateDesignationRequest.DateTo;
+                designation.Duration = updateDesignationRequest.Duration;
+                designation.Remarks = updateDesignationRequest.Remarks;
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return updated designation
+                return Ok(designation);
+            }
+            else
+            {
+                // Create a new designation and associate it with the employee
+                var newDesignation = new Designation
+                {
+                    EmployeeGuidId = employee.Id, // Set EmployeeGuidId to the Employee's Id
+                    EmployeeDesignation = updateDesignationRequest.EmployeeDesignation,
+                    DateFrom = updateDesignationRequest.DateFrom,
+                    DateTo = updateDesignationRequest.DateTo,
+                    Duration = updateDesignationRequest.Duration,
+                    Remarks = updateDesignationRequest.Remarks
+                };
+
+                // Add the new designation to the database
+                await _fullStackDbContext.Designation.AddAsync(newDesignation);
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return created designation
+                return CreatedAtAction(nameof(UpdateDesignation), new { id = newDesignation.Id }, newDesignation);
+            }
+        }
+
+
         [HttpPut("/updateEmployee")]
         public async Task<IActionResult> updateProfileEmployee([FromBody] Employee user)
         {
@@ -337,7 +411,8 @@ namespace FullStack.API.Controllers
                 return NotFound();
             }
 
-            _fullStackDbContext.Employees.Remove(employee);
+            // _fullStackDbContext.Employees.Remove(employee);
+            employee.IsActive = false;
             await _fullStackDbContext.SaveChangesAsync();   
             
             return Ok(employee);
