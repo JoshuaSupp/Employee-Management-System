@@ -23,7 +23,8 @@ namespace FullStack.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllEmployees()
         {
-            var employees = await _fullStackDbContext.Employees.ToListAsync();
+
+            var employees = await _fullStackDbContext.Employees.Where(e => e.IsActive).ToListAsync();
             return Ok(employees);
         }
 
@@ -32,6 +33,7 @@ namespace FullStack.API.Controllers
         public async Task<IActionResult> AddEmployee([FromBody] Employee employeeRequest)
         {
             employeeRequest.Id = Guid.NewGuid();
+            employeeRequest.IsActive = true;
             await _fullStackDbContext.Employees.AddAsync(employeeRequest);
             await _fullStackDbContext.SaveChangesAsync();
 
@@ -71,21 +73,50 @@ namespace FullStack.API.Controllers
 
         }
 
-        //todo find correct API endpoint link
-        //get employee name from employeeid
+        //load emergency contact data
         [HttpGet]
-        [Route("/employeeName/{employeeId:Int}")]
-        public async Task<IActionResult> GetEmployeeName([FromRoute] int employeeId)
+        [Route("/api/employees/GetEmergencyContactData/{id:Guid}")]
+        public async Task<IActionResult> GetEmergencyContactData([FromRoute] Guid id)
         {
-            var employee = await _fullStackDbContext.Employees.FirstOrDefaultAsync(x => x.EmployeeId == employeeId);
+            //Console.WriteLine($"Received request for Emergency Contact with ID: {id}");
+            var employee = await _fullStackDbContext.EmergencyContacts.FirstOrDefaultAsync(x => x.EmployeeGuidId == id);
 
             if (employee == null)
             {
+                Console.WriteLine("No emergency contact found.");
                 return NotFound();
             }
 
-            return Ok(new { employee.Name, employee.LastName });
+            return Ok(employee);
+        }
 
+        // Get employee designation(s) by employee ID
+        [HttpGet("/designations/{EmployeeGuidId}")]
+        public async Task<IActionResult> GetDesignations(Guid EmployeeGuidId)
+        {
+            // Check if EmployeeGuidId is provided
+            if (EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == EmployeeGuidId); // Ensure this matches your Employee's Id property
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Retrieve all designations associated with the employee
+            var designations = await _fullStackDbContext.Designation
+                .Where(d => d.EmployeeGuidId == EmployeeGuidId) // Filter by EmployeeGuidId
+                .ToListAsync();
+
+            // Return the list of designations
+            return Ok(designations);
         }
 
 
@@ -101,10 +132,18 @@ namespace FullStack.API.Controllers
                 return NotFound();
             }
 
+            employee.EmployeeId = updateEmployeeRequest.EmployeeId;
             employee.Name = updateEmployeeRequest.Name;
+            employee.MiddleName = updateEmployeeRequest.MiddleName;
             employee.LastName = updateEmployeeRequest.LastName;
+            employee.DOB = updateEmployeeRequest.DOB;
             employee.Email = updateEmployeeRequest.Email;
+            employee.Pwd = updateEmployeeRequest.Pwd;
+            employee.Gender = updateEmployeeRequest.Gender;
+            employee.BloodGroup = updateEmployeeRequest.BloodGroup;
             employee.Phone = updateEmployeeRequest.Phone;
+            employee.PersonalAddress = updateEmployeeRequest.PersonalAddress;
+            employee.PermanentAddress = updateEmployeeRequest.PermanentAddress;
             employee.Salary = updateEmployeeRequest.Salary;
             employee.Department = updateEmployeeRequest.Department;
 
@@ -113,8 +152,72 @@ namespace FullStack.API.Controllers
             return Ok(employee);
         }
 
-      
-        //update employee profile (employee)
+
+        //update designation in admin
+
+        [HttpPut("/updateDesignation")]
+        public async Task<IActionResult> UpdateDesignation([FromBody] Designation updateDesignationRequest)
+        {
+            // Check if EmployeeGuidId is provided
+            if (updateDesignationRequest.EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId from the request object
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == updateDesignationRequest.EmployeeGuidId);
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Find the existing designation associated with the employee
+            var designation = await _fullStackDbContext.Designation
+                .FirstOrDefaultAsync(d => d.EmployeeGuidId == employee.Id);
+
+            if (designation != null)
+            {
+                // Update properties of the existing designation
+                designation.EmployeeDesignation = updateDesignationRequest.EmployeeDesignation;
+                designation.DateFrom = updateDesignationRequest.DateFrom;
+                designation.DateTo = updateDesignationRequest.DateTo;
+                designation.Duration = updateDesignationRequest.Duration;
+                designation.Remarks = updateDesignationRequest.Remarks;
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return updated designation
+                return Ok(designation);
+            }
+            else
+            {
+                // Create a new designation and associate it with the employee
+                var newDesignation = new Designation
+                {
+                    EmployeeGuidId = employee.Id, // Set EmployeeGuidId to the Employee's Id
+                    EmployeeDesignation = updateDesignationRequest.EmployeeDesignation,
+                    DateFrom = updateDesignationRequest.DateFrom,
+                    DateTo = updateDesignationRequest.DateTo,
+                    Duration = updateDesignationRequest.Duration,
+                    Remarks = updateDesignationRequest.Remarks
+                };
+
+                // Add the new designation to the database
+                await _fullStackDbContext.Designation.AddAsync(newDesignation);
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return created designation
+                return CreatedAtAction(nameof(UpdateDesignation), new { id = newDesignation.Id }, newDesignation);
+            }
+        }
+
+
         [HttpPut("/updateEmployee")]
         public async Task<IActionResult> updateProfileEmployee([FromBody] Employee user)
         {
@@ -135,11 +238,165 @@ namespace FullStack.API.Controllers
             existingUser.BloodGroup = user.BloodGroup;
             existingUser.PersonalAddress = user.PersonalAddress;
             existingUser.PermanentAddress = user.PermanentAddress;
+            existingUser.PersonalPhone = user.PersonalPhone;
+            existingUser.Phone = user.Phone;
+            existingUser.Title = user.Title;
+            existingUser.Gender = user.Gender;
+            existingUser.Email = user.Email;
+            existingUser.PersonalEmail = user.PersonalEmail;
 
+            
             await _fullStackDbContext.SaveChangesAsync();
 
             return Ok(existingUser);
         }
+
+        //To get the emergency contact data
+        //[HttpPut("/updateEmergency")]
+        //public async Task<IActionResult> GetEmergencyContact(Guid employeeId)
+        //{
+        //    var emergencyContact = await _fullStackDbContext.EmergencyContacts
+        //        .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employeeId);
+
+        //    if (emergencyContact == null)
+        //    {
+        //        return NotFound("Emergency contact not found");
+        //    }
+
+        //    return Ok(emergencyContact);
+        //}
+
+
+        //add or update employee emergency contact (employee)
+        [HttpPut("/addEmergencyContact")]
+        public async Task<IActionResult> AddEmergencyContact([FromBody] EmergencyContact user)
+        {
+            // Check if EmployeeGuidId is provided
+            if (user.EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId from the user object
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == user.EmployeeGuidId);
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Find the existing emergency contact associated with the employee
+            var existingContact = await _fullStackDbContext.EmergencyContacts
+                .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employee.Id);
+
+            if (existingContact != null)
+            {
+                // Update properties of the existing emergency contact
+                existingContact.FullName = user.FullName;
+                existingContact.Relationship = user.Relationship;
+                existingContact.DOB = user.DOB;
+                existingContact.Email = user.Email;
+                existingContact.Phone = user.Phone;
+                existingContact.CompanyName = user.CompanyName;
+                existingContact.Address = user.Address;
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return updated emergency contact
+                return Ok(existingContact);
+            }
+            else
+            {
+                // Create a new emergency contact and associate it with the employee
+                var emergencyContact = new EmergencyContact
+                {
+                    EmployeeGuidId = employee.Id, // Set EmployeeGuidId to the Employee's Id
+                    FullName = user.FullName,
+                    Relationship = user.Relationship,
+                    DOB = user.DOB,
+                    Email = user.Email,
+                    Phone = user.Phone,
+                    CompanyName = user.CompanyName,
+                    Address = user.Address
+                };
+
+                // Add the new emergency contact to the database
+                await _fullStackDbContext.EmergencyContacts.AddAsync(emergencyContact);
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return created emergency contact
+                return CreatedAtAction(nameof(AddEmergencyContact), new { id = emergencyContact.Id }, emergencyContact);
+            }
+        }
+
+        //add or update employee designation (admin) [later todo]
+        [HttpPut("/addDesignation")]
+        public async Task<IActionResult> AddDesignation ([FromBody] Designation user)
+        {
+            // Check if EmployeeGuidId is provided
+            if (user.EmployeeGuidId == Guid.Empty)
+            {
+                return BadRequest("Employee ID must be provided.");
+            }
+
+            // Find the employee using EmployeeGuidId from the user object
+            var employee = await _fullStackDbContext.Employees
+                .FirstOrDefaultAsync(e => e.Id == user.EmployeeGuidId);
+
+            // Check if the employee exists
+            if (employee == null)
+            {
+                return NotFound("Employee not found");
+            }
+
+            // Find the existing emergency contact associated with the employee
+            var existingContact = await _fullStackDbContext.Designation
+                .FirstOrDefaultAsync(ec => ec.EmployeeGuidId == employee.Id);
+
+            if (existingContact != null)
+            {
+                // Update properties of the existing emergency contact
+                existingContact.EmployeeDesignation = user.EmployeeDesignation;
+                existingContact.DateFrom = user.DateFrom;
+                existingContact.DateTo = user.DateTo;
+                existingContact.Duration = user.Duration;
+                existingContact.Remarks = user.Remarks;
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return updated emergency contact
+                return Ok(existingContact);
+            }
+            else
+            {
+                // Create a new emergency contact and associate it with the employee
+                var designation = new Designation
+                {
+                    EmployeeGuidId = employee.Id, // Set EmployeeGuidId to the Employee's Id
+                    EmployeeDesignation = user.EmployeeDesignation,
+                    DateFrom = user.DateFrom,
+                    DateTo = user.DateTo,
+                    Duration = user.Duration,
+                    Remarks = user.Remarks,
+                };
+
+                // Add the new emergency contact to the database
+                await _fullStackDbContext.Designation.AddAsync(designation);
+
+                // Save changes to the database
+                await _fullStackDbContext.SaveChangesAsync();
+
+                // Return created emergency contact
+                return CreatedAtAction(nameof(AddEmergencyContact), new { id = designation.Id }, designation);
+            }
+        }
+
 
         //delete employee in admin
         [HttpDelete]
@@ -154,36 +411,51 @@ namespace FullStack.API.Controllers
                 return NotFound();
             }
 
-            _fullStackDbContext.Employees.Remove(employee);
+            // _fullStackDbContext.Employees.Remove(employee);
+            employee.IsActive = false;
             await _fullStackDbContext.SaveChangesAsync();   
             
             return Ok(employee);
         }
 
-        //login user used
-        //[AllowAnonymous]
-        //[HttpPost("LoginUser")]
-        //public IActionResult Login(Login user)
-        //{
-        //    var userAvaiable = _fullStackDbContext.Users.Where(u => u.Email == user.Email && u.Pwd == user.Pwd).FirstOrDefault();
-        //    if (userAvaiable != null)
-        //    {
-        //        return Ok(new JwtService(_config).GenerateToken(
-        //            userAvaiable.UserID.ToString(),
-        //            userAvaiable.FirstName,
-        //            userAvaiable.LastName,
-        //            userAvaiable.Email,
-        //            userAvaiable.Mobile,
-        //            userAvaiable.Gender
-        //        )
-        //    );
+      
+        //upload profile picture for my profile
+        [HttpPost("uploadProfilePicture/{id:Guid}")]
+        public async Task<IActionResult> UploadProfilePicture(Guid Id, IFormFile profilePicture)
+        {
+            if (profilePicture == null || profilePicture.Length == 0)
+                return BadRequest("No file uploaded.");
 
-        //    }
-        //    return Ok("Failure");
-        //}
+            // Define the uploads directory
+            var uploadsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "profileuploads");
+
+            // Create the directory if it does not exist
+            Directory.CreateDirectory(uploadsDirectory);
+
+            // Generate a unique file name to avoid conflicts
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(profilePicture.FileName);
+            var filePath = Path.Combine(uploadsDirectory, fileName);
+
+            // Save the uploaded file
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await profilePicture.CopyToAsync(stream);
+            }
+
+            // Save the image path to the database
+            var imagePath = $"/profileuploads/{fileName}"; // Relative path to access from web
+            var employee = await _fullStackDbContext.Employees.FindAsync(Id);
+
+            if (employee == null)
+                return NotFound("Employee not found.");
+
+            employee.ProfileImage = imagePath; // Store the relative path in ProfileImage column
+            await _fullStackDbContext.SaveChangesAsync(); // Save changes to the database
+
+            return Ok(new { message = "Profile picture uploaded successfully!", imagePath });
+        }
 
 
-     
         [AllowAnonymous]
         [HttpPost("LoginUser")]
         public IActionResult Login(Login user)

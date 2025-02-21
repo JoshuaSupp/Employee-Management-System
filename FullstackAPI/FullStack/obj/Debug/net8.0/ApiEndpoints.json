@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "AddDesignation",
+    "RelativePath": "addDesignation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "FullStack.API.Models.Designation",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "AddEmergencyContact",
+    "RelativePath": "addEmergencyContact",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "FullStack.API.Models.EmergencyContact",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
     "Method": "GetAllEmployees",
     "RelativePath": "api/Employees",
     "HttpMethod": "GET",
@@ -96,6 +128,22 @@
   },
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "GetEmergencyContactData",
+    "RelativePath": "api/employees/GetEmergencyContactData/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
     "Method": "Login",
     "RelativePath": "api/Employees/LoginUser",
     "HttpMethod": "POST",
@@ -106,6 +154,27 @@
         "Name": "user",
         "Type": "FullStack.API.Models.Login",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "UploadProfilePicture",
+    "RelativePath": "api/Employees/uploadProfilePicture/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "profilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -144,15 +213,31 @@
   },
   {
     "ContainingType": "FullStack.API.Controllers.EmployeesController",
-    "Method": "GetEmployeeName",
-    "RelativePath": "employeeName/{employeeId}",
+    "Method": "GetDesignations",
+    "RelativePath": "designations/{EmployeeGuidId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "employeeId",
-        "Type": "System.Int32",
+        "Name": "EmployeeGuidId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FullStack.API.Controllers.EmployeesController",
+    "Method": "UpdateDesignation",
+    "RelativePath": "updateDesignation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateDesignationRequest",
+        "Type": "FullStack.API.Models.Designation",
         "IsRequired": true
       }
     ],

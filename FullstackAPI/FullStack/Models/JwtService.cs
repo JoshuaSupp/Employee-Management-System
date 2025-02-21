@@ -38,7 +38,7 @@ namespace FullStack.API.Models
                 new Claim("roleid", roleId),
             };
 
-            if (!string.IsNullOrEmpty(name))  // Add employeeId claim only for employees
+            if (!string.IsNullOrEmpty(name))  // Add name claim only for employees
             {
                 claims.Add(new Claim("name", name));
             }
